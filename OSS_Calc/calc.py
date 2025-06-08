@@ -19,7 +19,7 @@ class Calculator:
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['0', '.', 'C', '+'],
-            ['=']
+            ['±','=']
         ]
 
         for row in buttons:
@@ -42,6 +42,11 @@ class Calculator:
                 self.expression = str(eval(self.expression))
             except Exception:
                 self.expression = "에러"
+        elif char == '±':
+            if self.expression.startswith('-'):
+                self.expression = self.expression[1:]
+            else:
+                self.expression = '-' + self.expression
         else:
             self.expression += str(char)
 
