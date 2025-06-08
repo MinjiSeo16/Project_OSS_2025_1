@@ -1,5 +1,5 @@
 import tkinter as tk
-
+import random
 
 class Calculator:
     def __init__(self, root):
@@ -19,7 +19,7 @@ class Calculator:
             ['4', '5', '6', '*'],
             ['1', '2', '3', '-'],
             ['0', '.', 'C', '+'],
-            ['=']
+            ['Rand','=']
         ]
 
         for row in buttons:
@@ -37,6 +37,8 @@ class Calculator:
     def on_click(self, char):
         if char == 'C':
             self.expression = ""
+        elif char == 'Rand':
+            self.expression += str(random.randint(0, 9))
         elif char == '=':
             try:
                 self.expression = str(eval(self.expression))
